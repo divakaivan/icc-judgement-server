@@ -1,18 +1,20 @@
 exports.resolvers = {
     Query: {
-        getAllCases: async () => {
-
+        getAllCases: async (root, args, {Case}) => {
+            try {
+                return await Case.find();
+            } catch (error) {
+                throw new Error("Could not fetch all recipes.")
+            }
         }
     },
 
     Mutation: {
         addCase: async (root, {image, extraCaseInfo}, {Case}) => {
             try {
-                const newCase = await new Case({
+                return await new Case({
                     image, extraCaseInfo
                 }).save();
-
-                return newCase;
             } catch (error) {
                 throw new Error("Could not add case.")
             }
