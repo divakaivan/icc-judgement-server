@@ -1,6 +1,7 @@
 exports.typeDefs = `
 
 type Case {
+    _id: ID
     image: String!
     comments: String
     toxicVotes: Int
@@ -9,6 +10,7 @@ type Case {
 }
 
 type User {
+    _id: ID
     summonerName: String! @unique
     password: String!
     email: String!
