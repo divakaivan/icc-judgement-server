@@ -18,12 +18,18 @@ type User {
     judgedCases: [Case]
 }
 
+type Token {
+    token: String!
+}
+
 type Query {
     getAllCases: [Case]
 }
 
 type Mutation {
     addCase(image: String!, extraCaseInfo: String!): Case
+    
+    signupUser(summonerName: String!, email: String!, password: String!): Token
 }
 
 `;
