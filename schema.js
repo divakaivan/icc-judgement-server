@@ -24,12 +24,16 @@ type Token {
 
 type Query {
     getAllCases: [Case]
+    
+    getCurrentUser: User
 }
 
 type Mutation {
     addCase(image: String!, extraCaseInfo: String!): Case
     
     signupUser(summonerName: String!, email: String!, password: String!): Token
+    
+    signinUser(summonerName: String!, password: String!): Token
 }
 
 `;
